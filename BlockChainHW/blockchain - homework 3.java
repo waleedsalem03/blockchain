@@ -4,27 +4,7 @@ import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DecentralizedBlockchain {
-    public static void main(String[] args) {
-        Node node1 = new Node();
-        Node node2 = new Node();
-        Node node3 = new Node();
 
-        Block b1 = new Block(1, "Omar sends 10 coins to Sara", node1.blockchain.chain.get(0).hash);
-        node1.blockchain.chain.add(b1);
-        node2.receiveBlock(b1);
-        node3.receiveBlock(b1);
-
-        Block b2 = new Block(2, "Sara sends 5 coins to Ali", node1.blockchain.chain.get(1).hash);
-        node1.blockchain.chain.add(b2);
-        node2.receiveBlock(b2);
-        node3.receiveBlock(b2);
-
-        System.out.println("Node1:\n" + node1.blockchain);
-        System.out.println("Node2:\n" + node2.blockchain);
-        System.out.println("Node3:\n" + node3.blockchain);
-    }
-}
 
 
 class Block {
@@ -88,5 +68,28 @@ class Node {
         if (b.prevHash.equals(last.hash)) blockchain.chain.add(b);
     }
 }
+
+public class DecentralizedBlockchain {
+    public static void main(String[] args) {
+        Node node1 = new Node();
+        Node node2 = new Node();
+        Node node3 = new Node();
+
+        Block b1 = new Block(1, "Omar sends 10 coins to Sara", node1.blockchain.chain.get(0).hash);
+        node1.blockchain.chain.add(b1);
+        node2.receiveBlock(b1);
+        node3.receiveBlock(b1);
+
+        Block b2 = new Block(2, "Sara sends 5 coins to Ali", node1.blockchain.chain.get(1).hash);
+        node1.blockchain.chain.add(b2);
+        node2.receiveBlock(b2);
+        node3.receiveBlock(b2);
+
+        System.out.println("Node1:\n" + node1.blockchain);
+        System.out.println("Node2:\n" + node2.blockchain);
+        System.out.println("Node3:\n" + node3.blockchain);
+    }
+}
+
 
 
